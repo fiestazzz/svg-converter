@@ -117,7 +117,7 @@ app.post('/image', upload.single('svg'), async (req, res) => {
     cert: fs.readFileSync("./certificates/server.cert"),
 };
 
-const PORT = process.env.PORT || 7200;
+const PORT = process.env.PORT || 5001;
 
 https.createServer(options, app)
     .listen(PORT, function (req, res) {
