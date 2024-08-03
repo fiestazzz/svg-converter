@@ -117,9 +117,9 @@ app.post('/image', upload.single('svg'), async (req, res) => {
     cert: fs.readFileSync("./certificates/server.cert"),
 };
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7200;
 
 https.createServer(options, app)
-    .listen(3000, function (req, res) {
-        console.log("Server started at port 3000");
+    .listen(PORT, function (req, res) {
+        console.log(`Server started at port: ${PORT}`);
     });
