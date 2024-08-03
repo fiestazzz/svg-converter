@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image and SVG Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Image file converter</h1>
+            <h3>Convert image/svg or svg/image</h3>
+        </div>
+        <div class="imagetosvg">
+            <h1>Image to SVG Converter</h1>
+            <form id="imageConverterForm" class="form" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="image" accept="image/jpeg, image/jpg, image/png" required>
+                <button class="download-button" type="submit">Convert Image</button>
+            <p id="imageError" style="color: red; display: none;">Please select a valid image file.</p>
+            </form>
+    
+            <div id="svgResult">
+                <h2>SVG Output:</h2>
+                <div id="svgContainer"></div>
+                <a class="download-button" id="downloadSvgButton" style="display:none;">Download SVG</a>
+            </div>
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;"></div>
+        </div>
+        <div class="svgtoimage">
+            <h1>SVG to Image Converter</h1>
+            <form id="svgConvertForm" class="form" enctype="multipart/form-data">
+                <input type="file" id="svgFileInput" name="svg" accept=".svg" required>
+                <button class="download-button" type="submit">Convert SVG to Image</button>
+                <p id="svgError" style="color: red; display: none;">Please select a valid SVG file.</p>
+            </form>
+            <div id="imageResult">
+                <h2>Converted Image:</h2>
+                <img id="convertedImage" src="" alt="Converted Image" style="display:none;">
+            <a class="download-button" id="downloadImageButton" style="display:none;">Download Image</a>
+            </div>
+            <div id="imageLoadingSpinner" class="loading-spinner" style="display: none;"></div>
+        </div>
+    </div>
+   
+  
+  <script src="script.js"></script>
+</body>
+</html>
