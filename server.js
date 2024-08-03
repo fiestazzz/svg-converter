@@ -1,7 +1,8 @@
 const express = require('express');
+const https = require("https");
+const fs = require("fs");
 const multer = require('multer');
 const potrace = require('potrace');
-const fs = require('fs');
 const path = require('path');
 const Jimp = require('jimp');
 const quantize = require('quantize');
@@ -111,7 +112,14 @@ app.post('/image', upload.single('svg'), async (req, res) => {
     }
   });
 
+  const options = {
+    key: fs.readFileSync("./certificates/server.key"),
+    cert: fs.readFileSync("./certificates/server.cert"),
+};
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+https.createServer(options, app)
+    .listen(3000, function (req, res) {
+        console.log("Server started at port 3000");
+    });
